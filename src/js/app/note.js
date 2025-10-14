@@ -60,14 +60,24 @@ function displayNote(note) {
     const section = document.createElement("section");
     section.contentEditable = true;
     section.className = note.color;
-    section.textContent = note.note;
     section.dataset.id = note.id;
+    
+    // Create the center-wrap div and add the note content to it
+    const centerWrapDiv = document.createElement("div");
+    centerWrapDiv.className = "center-wrap";
+    centerWrapDiv.textContent = note.note;
+    section.appendChild(centerWrapDiv);
+    
     container.appendChild(section);
+
+    // Store reference to center-wrap div for later use
+    section.centerWrapDiv = centerWrapDiv;
 
     console.log("Note displayed:", note);
 
     section.addEventListener("input", function() {
-        saveNote(note.id, section.textContent);
+        // Update the content of the center-wrap div instead of the section
+        saveNote(note.id, centerWrapDiv.textContent);
     });
 
     // Save color changes
@@ -75,7 +85,7 @@ function displayNote(note) {
         mutations.forEach(function(mutation) {
             if (mutation.attributeName === 'class') {
                 const color = Array.from(section.classList).find(cls => colors.includes(cls));
-                if (color) saveNote(note.id, section.textContent, color);
+                if (color) saveNote(note.id, centerWrapDiv.textContent, color);
             }
         });
     });
