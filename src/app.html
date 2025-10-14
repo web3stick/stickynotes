@@ -1,102 +1,126 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>stickynotes</title>
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="./img/icon_smaller.svg"
+        />
+        <link rel="manifest" href="./manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stickynotes</title>
-      <link rel="shortcut icon" type="image/x-icon" href="./img/icon_smaller.svg" />
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/app.css" />
+    </head>
 
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/app.css">
-</head>
+    <body>
+        <!-- APP UI -->
+        <div id="CREATE_BUTTON">+</div>
+        <div id="OPEN_SETTINGS_BUTTON">⚙️</div>
 
-<body>
+        <!-- SETTINGS -->
+        <!-- Fixed center -->
+        <div id="SETTINGS">
+            <h2>SETTINGS</h2>
+            <form>
+                <div>
+                    <input
+                        type="checkbox"
+                        id="bypass_index"
+                        name="bypass_index"
+                    />
+                    <label for="bypass_index">BYPASS INDEX PAGE</label>
+                </div>
+                <button type="button" id="export_notes">
+                    EXPORT NOTES AS JSON
+                </button>
+                <button type="submit">save settings</button>
+            </form>
+        </div>
 
-    <!-- APP UI -->
-    <div id="CREATE_BUTTON">+</div>
-    <div id="OPEN_SETTINGS_BUTTON">⚙️</div>
-
-    <!-- SETTINGS -->
-    <!-- Fixed center -->
-    <div id="SETTINGS">
-        <h2>SETTINGS</h2>
-        <form>
-            <div>
-                <input type="checkbox" id="bypass_index" name="bypass_index">
-                <label for="bypass_index">BYPASS INDEX PAGE</label>
+        <!-- first time and how to use -->
+        <!-- Fixed ceneter -->
+        <div id="FIRST_TIME">
+            <h2>Welcome to Sticky Notes! 📝</h2>
+            <div class="guide-section">
+                <h3>Creating Notes</h3>
+                <p>
+                    Click the "+" button in the bottom-right corner to create a
+                    new note. Type your content directly into the note.
+                </p>
             </div>
-            <button type="button" id="export_notes">EXPORT NOTES AS JSON</button>
-            <button type="submit">save settings</button>
-        </form>
-    </div>
 
+            <div class="guide-section">
+                <h3>Note Options</h3>
+                <p>You have three options for managing your notes:</p>
+                <ul>
+                    <li>📋 Copy - Copies note content to clipboard</li>
+                    <li>🎨 Color - Changes note color</li>
+                    <li>🗑️ Delete - Removes the note</li>
+                </ul>
+            </div>
 
+            <div class="guide-section">
+                <h3>Using Options</h3>
+                <p>
+                    <strong>On Desktop:</strong> Drag and drop any option onto a
+                    note to use it.
+                </p>
+                <p>
+                    <strong>On Mobile:</strong> Tap an option first, then tap
+                    the note you want to apply it to.
+                </p>
+            </div>
 
-    <!-- first time and how to use -->
-    <!-- Fixed ceneter -->
-    <div id="FIRST_TIME">
-        <h2>Welcome to Sticky Notes! 📝</h2>
-        <div class="guide-section">
-            <h3>Creating Notes</h3>
-            <p>Click the "+" button in the bottom-right corner to create a new note. Type your content directly into the
-                note.</p>
+            <div class="guide-section">
+                <h3>Saving & Backup</h3>
+                <p>
+                    Your notes are automatically saved locally in your browser.
+                </p>
+                <p>To backup your notes:</p>
+                <ol>
+                    <li>Click the ⚙️ settings icon</li>
+                    <li>Use the "EXPORT NOTES AS JSON" button</li>
+                    <li>Save the file somewhere safe</li>
+                </ol>
+            </div>
+
+            <button class="got-it-btn">Got it!</button>
         </div>
 
-        <div class="guide-section">
-            <h3>Note Options</h3>
-            <p>You have three options for managing your notes:</p>
-            <ul>
-                <li>📋 Copy - Copies note content to clipboard</li>
-                <li>🎨 Color - Changes note color</li>
-                <li>🗑️ Delete - Removes the note</li>
-            </ul>
+        <!-- fixed top right -->
+        <div class="note_options">
+            <!-- <div class="note_pin">📌</div> -->
+            <div
+                draggable="true"
+                class="note_copy"
+                title="Copy note content to clipboard"
+            >
+                📋
+            </div>
+            <div draggable="true" class="note_color" title="Change note color">
+                🎨
+            </div>
+            <div draggable="true" class="note_delete" title="Delete note">
+                🗑️
+            </div>
         </div>
+        <!-- fixed center near bottom and rounded -->
+        <!-- and shows a alert, like note copied, color changed, note deleted -->
+        <div class="note_options_alert">alert here</div>
 
-        <div class="guide-section">
-            <h3>Using Options</h3>
-            <p><strong>On Desktop:</strong> Drag and drop any option onto a note to use it.</p>
-            <p><strong>On Mobile:</strong> Tap an option first, then tap the note you want to apply it to.</p>
-        </div>
-
-        <div class="guide-section">
-            <h3>Saving & Backup</h3>
-            <p>Your notes are automatically saved locally in your browser.</p>
-            <p>To backup your notes:</p>
-            <ol>
-                <li>Click the ⚙️ settings icon</li>
-                <li>Use the "EXPORT NOTES AS JSON" button</li>
-                <li>Save the file somewhere safe</li>
-            </ol>
-        </div>
-
-        <button class="got-it-btn">Got it!</button>
-    </div>
-
-
-    <!-- fixed top right -->
-    <div class="note_options">
-        <!-- <div class="note_pin">📌</div> -->
-        <div draggable="true" class="note_copy" title="Copy note content to clipboard">📋</div>
-        <div draggable="true" class="note_color" title="Change note color">🎨</div>
-        <div draggable="true" class="note_delete" title="Delete note">🗑️</div>
-    </div>
-    <!-- fixed center near bottom and rounded -->
-    <!-- and shows a alert, like note copied, color changed, note deleted -->
-    <div class="note_options_alert">alert here</div>
-
-    <!-- future -->
-    <!-- <div id="SEARCH">
+        <!-- future -->
+        <!-- <div id="SEARCH">
         <input type="text" id="search_input" placeholder="Search notes..." />
     </div> -->
 
-    <!-- NOTES WILL BE IN article -->
-    <article id="stickynotes_container">
-
-        <!-- note sample -->
-        <!-- <section contenteditable class="red">
+        <!-- NOTES WILL BE IN article -->
+        <article id="stickynotes_container">
+            <!-- note sample -->
+            <!-- <section contenteditable class="red">
             Hello World!
         </section>
         <section contenteditable class="green">
@@ -115,61 +139,64 @@
             Hello World!
         </section> -->
 
-        <!-- each note will be in a section with the class of the color -->
+            <!-- each note will be in a section with the class of the color -->
 
-        <section class="yellow" data-id="7777777777">
-            <h3>stickynotes</h3>
-            <p>
-                Create notes with the "+" button<br/>
-                and manage them with options<br/>
-                like copy, color, and delete.<br/>
-                You can export your notes by<br/>
-                clicking the ⚙️ top left corner.
-            </p>
-            <footer>
-                <p>
-                    <a href="./">home</a>
-                    <a href="./app.html"> web app</a>
-                    <a href="./share.html">share notes</a>
-                    <a href="./about.html">about</a>
-                </p>
-                <p>
-                    🗑️ Have fun trying to delete this note!
-                    <br/> (Hint: Drag the trash can form the top right corner)
-                </p>
-                <p>Some features may not work right on mobile.</p>
-                <p>copyright: 2025 by sleet.near</p>
-            </footer>
-        </section>
-    </article>
+            <section class="yellow" data-id="7777777777">
+                <div class="center-wrap">
+                    <h3>stickynotes</h3>
+                    <p>
+                        Create notes with the "+" button<br />
+                        and manage them with options<br />
+                        like copy, color, and delete.<br />
+                        You can export your notes by<br />
+                        clicking the ⚙️ top left corner.
+                    </p>
+                    <footer>
+                        <p>
+                            <a href="./">home</a>
+                            <a href="./app.html"> web app</a>
+                            <a href="./share.html">share notes</a>
+                            <a href="./about.html">about</a>
+                        </p>
+                        <p>
+                            🗑️ Have fun trying to delete this note!
+                            <br />
+                            (Hint: Drag the trash can form the top right corner)
+                        </p>
+                        <p>Some features may not work right on mobile.</p>
+                        <p>copyright: 2025 by sleet.near</p>
+                    </footer>
+                </div>
+            </section>
+        </article>
 
+        <!-- scipt  -->
+        <script src="./js/hello.js"></script>
+        <script src="./js/app/note.js"></script>
+        <script src="./js/app/note_options.js"></script>
+        <script src="./js/app/FIRST_TIME.js"></script>
+        <script src="./js/app/SETTINGS.js"></script>
+        <script src="./js/app/SETTINGS_export_notes.js"></script>
 
-
-
-    <!-- scipt  -->
-    <script src="./js/hello.js"></script>
-    <script src="./js/app/note.js"></script>
-    <script src="./js/app/note_options.js"></script>
-    <script src="./js/app/FIRST_TIME.js"></script>
-    <script src="./js/app/SETTINGS.js"></script>
-    <script src="./js/app/SETTINGS_export_notes.js"></script>
-
-
-    <!-- sw  -->
-    <script type="module">
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register(new URL('./sw.js', import.meta.url))
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
-    </script>
-
-</body>
-
+        <!-- sw  -->
+        <script type="module">
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", () => {
+                    navigator.serviceWorker
+                        .register(new URL("./sw.js", import.meta.url))
+                        .then((registration) => {
+                            console.log(
+                                "ServiceWorker registration successful",
+                            );
+                        })
+                        .catch((err) => {
+                            console.log(
+                                "ServiceWorker registration failed: ",
+                                err,
+                            );
+                        });
+                });
+            }
+        </script>
+    </body>
 </html>
