@@ -20,6 +20,11 @@ bun run web4_mainnet
 # web3 storgae as backup
 w3 space use TEMP
 w3 up src
+
+# netlify
+# sticky-stickynotes
+netlify deploy
+netlify deploy --prod
 ```
 
 ---
