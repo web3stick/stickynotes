@@ -22,7 +22,7 @@ w3 space use TEMP
 w3 up src
 
 # netlify
-# sticky-stickynotes
+# stickyweb-stickynotes
 netlify deploy
 netlify deploy --prod
 ```
