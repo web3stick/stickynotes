@@ -5,6 +5,7 @@
     "": {
       "name": "stickynotes",
       "dependencies": {
+        "@sleet-css/sticky-css": "^0.0.2",
         "svelte": "^5.46.1",
       },
       "devDependencies": {
@@ -75,6 +76,8 @@
     "@rspack/core": ["@rspack/core@1.7.11", "", { "dependencies": { "@module-federation/runtime-tools": "0.22.0", "@rspack/binding": "1.7.11", "@rspack/lite-tapable": "1.1.0" }, "peerDependencies": { "@swc/helpers": ">=0.5.1" }, "optionalPeers": ["@swc/helpers"] }, "sha512-rsD9b+Khmot5DwCMiB3cqTQo53ioPG3M/A7BySu8+0+RS7GCxKm+Z+mtsjtG/vsu4Tn2tcqCdZtA3pgLoJB+ew=="],
 
     "@rspack/lite-tapable": ["@rspack/lite-tapable@1.1.0", "", {}, "sha512-E2B0JhYFmVAwdDiG14+DW0Di4Ze4Jg10Pc4/lILUrd5DRCaklduz2OvJ5HYQ6G+hd+WTzqQb3QnDNfK4yvAFYw=="],
+
+    "@sleet-css/sticky-css": ["@sleet-css/sticky-css@0.0.2", "", {}, "sha512-1QKC+kvSofRxka3TAOPzE5fp9XqaXto9J5KpppgkEaQGdi9zS/vQNDzJzjZEJMDc2Y99RIF5TU2CZwJZ94IeLQ=="],
 
     "@sveltejs/acorn-typescript": ["@sveltejs/acorn-typescript@1.0.9", "", { "peerDependencies": { "acorn": "^8.9.0" } }, "sha512-lVJX6qEgs/4DOcRTpo56tmKzVPtoWAaVbL4hfO7t7NVwl9AAXzQR6cihesW1BmNMPl+bK6dreu2sOKBP2Q9CIA=="],
 
