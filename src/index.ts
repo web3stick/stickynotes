@@ -22,18 +22,24 @@ if (document.readyState === "loading") {
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/sw.js").then((reg) => {
+      console.log("Service Worker registered:", reg.scope);
+
       reg.addEventListener("updatefound", () => {
         const newWorker = reg.installing;
         if (!newWorker) return;
 
+        console.log("New Service Worker version found");
+
         newWorker.addEventListener("statechange", () => {
           if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
-            // New version available
+            console.log("New version available, activating...");
             newWorker.postMessage({ type: "SKIP_WAITING" });
             window.location.reload();
           }
         });
       });
+    }).catch((err) => {
+      console.error("Service Worker registration failed:", err);
     });
   });
 }
