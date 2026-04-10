@@ -1,13 +1,14 @@
+<script lang="ts">
+    import { Router } from "sv-router";
+    import "./ts/routes";
+</script>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
+
 <main>
-  <div class="content">
-    <h1>Rsbuild with Svelte</h1>
-    <p>Start building amazing things with Rsbuild.</p>
-  </div>
+    <Router />
 </main>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
-
