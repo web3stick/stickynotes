@@ -21,6 +21,19 @@ if (document.readyState === "loading") {
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js");
+    navigator.serviceWorker.register("/sw.js").then((reg) => {
+      reg.addEventListener("updatefound", () => {
+        const newWorker = reg.installing;
+        if (!newWorker) return;
+
+        newWorker.addEventListener("statechange", () => {
+          if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+            // New version available
+            newWorker.postMessage({ type: "SKIP_WAITING" });
+            window.location.reload();
+          }
+        });
+      });
+    });
   });
 }
