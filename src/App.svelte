@@ -1,6 +1,10 @@
 <script lang="ts">
   import { Router } from "sv-router";
+  import { init_bypass_index } from "./ts/bypass_index";
   import "./ts/routes";
+// ============================================
+  init_bypass_index();
+// ============================================
 </script>
 
 <!-- ============================================ -->
