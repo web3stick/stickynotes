@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { settingsVisible } from "../../ts/stores";
-
-  function toggleSettings() {
-    settingsVisible.update((v) => !v);
+  import { settings_visible } from "../../ts/stores";
+// ============================================
+  function toggle_settings() {
+    settings_visible.update((v) => !v);
   }
+// ============================================
 </script>
 
 <!-- ============================================ -->
@@ -13,10 +14,10 @@
 <!-- BUTTON_OPEN_SETTINGS -->
 <div
   id="BUTTON_OPEN_SETTINGS"
-  onclick={toggleSettings}
+  onclick={toggle_settings}
   role="button"
   tabindex="0"
-  onkeydown={(e) => e.key === "Enter" && toggleSettings()}
+  onkeydown={(e) => e.key === "Enter" && toggle_settings()}
 >
   ⚙️
 </div>

@@ -1,21 +1,22 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { loadSettings, saveSettings } from "../../ts/settings";
-  import { settingsVisible, showAlert } from "../../ts/stores";
-
-  let bypassIndex = $state(false);
-
+  import { load_settings, save_settings } from "../../ts/settings";
+  import { settings_visible, show_alert } from "../../ts/stores";
+// ============================================
+  let bypass_index = $state(false);
+// ============================================
   onMount(() => {
-    const settings = loadSettings();
-    bypassIndex = settings.bypassIndex;
+    const settings = load_settings();
+    bypass_index = settings.bypass_index;
   });
-
-  function handleSave(e: Event) {
+// ============================================
+  function handle_save(e: Event) {
     e.preventDefault();
-    saveSettings({ bypassIndex });
-    settingsVisible.set(false);
-    showAlert("Settings saved!");
+    save_settings({ bypass_index });
+    settings_visible.set(false);
+    show_alert("Settings saved!");
   }
+// ============================================
 </script>
 
 <!-- ============================================ -->
@@ -23,15 +24,15 @@
 
 <!-- DIV_SETTINGS -->
 <!-- Fixed center -->
-<div id="SETTINGS" style:display={$settingsVisible ? "block" : "none"}>
+<div id="SETTINGS" style:display={$settings_visible ? "block" : "none"}>
   <h2>SETTINGS</h2>
-  <form onsubmit={handleSave}>
+  <form onsubmit={handle_save}>
     <div>
       <input
         type="checkbox"
         id="bypass_index"
         name="bypass_index"
-        bind:checked={bypassIndex}
+        bind:checked={bypass_index}
       />
       <label for="bypass_index">BYPASS INDEX PAGE</label>
     </div>

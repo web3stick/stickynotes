@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { alertMessage } from "../../ts/stores";
+  import { alert_message } from "../../ts/stores";
 </script>
 
 <!-- ============================================ -->
@@ -9,9 +9,9 @@
 <!-- DIV_NOTE_OPTIONS_ALERT -->
 <div
   class="note_options_alert"
-  style:display={$alertMessage ? "block" : "none"}
+  style:display={$alert_message ? "block" : "none"}
 >
-  {$alertMessage}
+  {$alert_message}
 </div>
 
 <!-- ============================================ -->

@@ -1,9 +1,10 @@
 import { writable } from "svelte/store";
-
-export const settingsVisible = writable(false);
-export const alertMessage = writable("");
-
-export function showAlert(message: string, duration = 2000) {
-  alertMessage.set(message);
-  setTimeout(() => alertMessage.set(""), duration);
+// ============================================
+export const settings_visible = writable(false);
+export const alert_message = writable("");
+// ============================================
+export function show_alert(message: string, duration = 2000) {
+  alert_message.set(message);
+  setTimeout(() => alert_message.set(""), duration);
 }
+// ============================================

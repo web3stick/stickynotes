@@ -1,17 +1,21 @@
-const SETTINGS_KEY = "stickynotes_settings";
-
+import { STICKYNOTES_INDEX_SETTINGS_KEY } from "./constants";
+// ============================================
 export interface Settings {
-  bypassIndex: boolean;
+  bypass_index: boolean;
 }
-
-export function loadSettings(): Settings {
-  const saved = localStorage.getItem(SETTINGS_KEY);
+// ============================================
+export function load_settings(): Settings {
+  const saved = localStorage.getItem(STICKYNOTES_INDEX_SETTINGS_KEY);
   if (saved) {
     return JSON.parse(saved);
   }
-  return { bypassIndex: false };
+  return { bypass_index: false };
 }
-
-export function saveSettings(settings: Settings) {
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+// ============================================
+export function save_settings(settings: Settings) {
+  localStorage.setItem(
+    STICKYNOTES_INDEX_SETTINGS_KEY,
+    JSON.stringify(settings),
+  );
 }
+// ============================================
