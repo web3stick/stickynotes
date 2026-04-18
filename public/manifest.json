@@ -1,7 +1,7 @@
 {
-  "name": "StickyNotes",
-  "short_name": "StickyNotes",
-  "description": "StickyNotes",
+  "name": "STICKYNOTES",
+  "short_name": "STICKYNOTES",
+  "description": "STICKYNOTES",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
