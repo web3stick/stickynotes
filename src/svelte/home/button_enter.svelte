@@ -1,18 +1,20 @@
 <script lang="ts">
-  import SECTION_FEATURES from "./home/section_features.svelte";
-  import BUTTON_ENTER from "./home/button_enter.svelte";
+  import { ROUTES } from "../../ts/routes";
 </script>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
 
-<article>
-  <section>
-    <h1>stickynotes</h1>
-  </section>
-  <SECTION_FEATURES />
-  <BUTTON_ENTER />
-</article>
+<!-- BUTTON_ENTER -->
+<a href={ROUTES.app}><button id="BUTTON_ENTER">ENTER WEB APP</button></a>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
+
+<style>
+  #BUTTON_ENTER {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+</style>
