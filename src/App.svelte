@@ -1,13 +1,13 @@
 <script lang="ts">
-    import { Router } from "sv-router";
-    import "./ts/routes";
+  import { Router } from "sv-router";
+  import "./ts/routes";
 </script>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
 
 <main>
-    <Router />
+  <Router />
 </main>
 
 <!-- ============================================ -->

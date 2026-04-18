@@ -2,9 +2,9 @@
 <!-- ============================================ -->
 
 <article>
-    <section>
-        <h1>stickynotes</h1>
-    </section>
+  <section>
+    <h1>stickynotes</h1>
+  </section>
 </article>
 
 <!-- ============================================ -->

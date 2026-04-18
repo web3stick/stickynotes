@@ -5,15 +5,16 @@
     "": {
       "name": "stickynotes",
       "dependencies": {
-        "@sleet-css/sticky-css": "latest",
-        "sv-router": "latest",
-        "svelte": "latest",
+        "@sleet-css/sticky-css": "^0.0.3",
+        "sv-router": "^0.16.0",
+        "svelte": "^5.55.4",
       },
       "devDependencies": {
-        "@rsbuild/core": "latest",
-        "@rsbuild/plugin-svelte": "latest",
-        "svelte-check": "latest",
-        "typescript": "latest",
+        "@rsbuild/core": "^1.7.5",
+        "@rsbuild/plugin-svelte": "^1.1.1",
+        "prettier-plugin-svelte": "^3.5.1",
+        "svelte-check": "^4.4.6",
+        "typescript": "^6.0.3",
       },
     },
   },
@@ -129,6 +130,10 @@
     "mri": ["mri@1.2.0", "", {}, "sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA=="],
 
     "picocolors": ["picocolors@1.1.1", "", {}, "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="],
+
+    "prettier": ["prettier@3.8.3", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw=="],
+
+    "prettier-plugin-svelte": ["prettier-plugin-svelte@3.5.1", "", { "peerDependencies": { "prettier": "^3.0.0", "svelte": "^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0" } }, "sha512-65+fr5+cgIKWKiqM1Doum4uX6bY8iFCdztvvp2RcF+AJoieaw9kJOFMNcJo/bkmKYsxFaM9OsVZK/gWauG/5mg=="],
 
     "readdirp": ["readdirp@4.1.2", "", {}, "sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg=="],
 

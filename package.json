@@ -17,6 +17,7 @@
   "devDependencies": {
     "@rsbuild/core": "^1.7.5",
     "@rsbuild/plugin-svelte": "^1.1.1",
+    "prettier-plugin-svelte": "^3.5.1",
     "svelte-check": "^4.4.6",
     "typescript": "^6.0.3"
   }
