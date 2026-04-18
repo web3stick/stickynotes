@@ -3,6 +3,7 @@
   import BUTTON_OPEN_SETTINGS from "./app/button_open_settings.svelte";
   import DIV_SETTINGS from "./app/div_settings.svelte";
   import DIV_NOTE_OPTIONS from "./app/div_note_options.svelte";
+  import DIV_FIRST_TIME from "./app/div_first_time.svelte";
 </script>
 
 <!-- ============================================ -->
@@ -18,6 +19,7 @@
   <!-- div -->
   <DIV_SETTINGS />
   <DIV_NOTE_OPTIONS />
+  <DIV_FIRST_TIME />
 </article>
 
 <!-- ============================================ -->
