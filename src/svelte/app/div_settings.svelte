@@ -14,7 +14,7 @@
     e.preventDefault();
     save_settings({ bypass_index });
     settings_visible.set(false);
-    show_alert("Settings saved!");
+    show_alert("SETTINGS SAVED!");
   }
 // ============================================
 </script>
