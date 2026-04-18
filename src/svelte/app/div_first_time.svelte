@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  const FIRST_TIME_KEY = 'stickynotes_visited';
+  import { onMount } from "svelte";
+  const FIRST_TIME_KEY = "stickynotes_visited";
   let visible = $state(false);
   // ============================================
   onMount(() => {
@@ -8,7 +8,7 @@
   });
 
   function markAsVisited() {
-    localStorage.setItem(FIRST_TIME_KEY, 'true');
+    localStorage.setItem(FIRST_TIME_KEY, "true");
     visible = false;
   }
 </script>
@@ -20,7 +20,7 @@
 <!-- DIV_FIRST_TIME -->
 <!-- first time and how to use -->
 <!-- Fixed ceneter -->
-<div id="FIRST_TIME" style:display={visible ? 'block' : 'none'}>
+<div id="FIRST_TIME" style:display={visible ? "block" : "none"}>
   <h2>Welcome to STICKYNOTES! 📝</h2>
   <div class="guide-section">
     <h3>Creating Notes</h3>

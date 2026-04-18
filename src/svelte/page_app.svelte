@@ -4,6 +4,7 @@
   import DIV_SETTINGS from "./app/div_settings.svelte";
   import DIV_NOTE_OPTIONS from "./app/div_note_options.svelte";
   import DIV_FIRST_TIME from "./app/div_first_time.svelte";
+  import DIV_NOTE_OPTIONS_ALERT from "./app/div_note_options_alert.svelte";
 </script>
 
 <!-- ============================================ -->
@@ -20,6 +21,7 @@
   <DIV_SETTINGS />
   <DIV_NOTE_OPTIONS />
   <DIV_FIRST_TIME />
+  <DIV_NOTE_OPTIONS_ALERT />
 </article>
 
 <!-- ============================================ -->
