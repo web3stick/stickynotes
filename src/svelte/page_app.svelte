@@ -12,9 +12,11 @@
 <!-- ============================================ -->
 
 <article>
-  <!-- <section>
-    <h1>app</h1>
-  </section> -->
+  <section>
+    <h1>stickynotes</h1>
+    <!-- DIV_STICKYNOTES_CONTAINER -->
+    <DIV_STICKYNOTES_CONTAINER />
+  </section>
   <!-- buttons -->
   <BUTTON_CREATE />
   <BUTTON_OPEN_SETTINGS />
@@ -23,8 +25,6 @@
   <DIV_NOTE_OPTIONS />
   <DIV_FIRST_TIME />
   <DIV_NOTE_OPTIONS_ALERT />
-  <!-- DIV_STICKYNOTES_CONTAINER -->
-  <DIV_STICKYNOTES_CONTAINER />
 </article>
 
 <!-- ============================================ -->
