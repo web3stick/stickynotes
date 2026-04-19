@@ -1,11 +1,26 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import { sticky_dexie_db } from "../../ts/dexie/new";
+  import { liveQuery } from "dexie";
+
+  function generateId(): string {
+    return crypto.randomUUID();
+  }
+
+  async function createNote() {
+    await sticky_dexie_db.stickynotes.add({
+      id: generateId(),
+      color: "yellow",
+      note: "start typing here...",
+    });
+  }
+</script>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
 
 <!-- button_create -->
 <!-- BUTTON_CREATE -->
-<div id="BUTTON_CREATE">+</div>
+<div id="BUTTON_CREATE" on:click={createNote} on:keydown={(e) => e.key === "Enter" && createNote()} tabindex="0" role="button">+</div>
 
 <!-- ============================================ -->
 <!-- ============================================ -->

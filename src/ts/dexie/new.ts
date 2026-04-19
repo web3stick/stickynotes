@@ -8,6 +8,6 @@ export const sticky_dexie_db = new Dexie("STICKYNOTES_DATABASE") as Dexie & {
 // ============================================
 // Schema declaration:
 sticky_dexie_db.version(1).stores({
-  STICKYNOTE: "++id, color, note",
+  stickynotes: "++id, color, note",
 });
 // ============================================
