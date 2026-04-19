@@ -24,30 +24,9 @@
     await sticky_dexie_db.stickynotes.update(id, { note: new_note });
   }
 
-  function handle_keydown(event: KeyboardEvent, id: string) {
-    if (event.key === "Enter" && !event.shiftKey) {
+  function handle_keydown(event: KeyboardEvent) {
+    if (event.key === "Enter") {
       event.preventDefault();
-      const selection = window.getSelection();
-      if (!selection || selection.rangeCount === 0) return;
-      const range = selection.getRangeAt(0);
-      const node = range.startContainer;
-      if (node.nodeType === Node.TEXT_NODE) {
-        const parent = node.parentElement;
-        if (!parent) return;
-        const text = node.textContent || "";
-        const offset = range.startOffset;
-        const before = text.slice(0, offset);
-        const after = text.slice(offset);
-        parent.textContent = before + "\n" + after;
-        // move cursor after the \n
-        const newRange = document.createRange();
-        newRange.setStart(node, offset + 1);
-        newRange.collapse(true);
-        selection.removeAllRanges();
-        selection.addRange(newRange);
-        // trigger save via input event
-        parent.dispatchEvent(new Event("input", { bubbles: true }));
-      }
     }
   }
 
@@ -129,7 +108,7 @@
       use:setup_observer={note.id}
       on:dragover={handle_drag_over}
       on:drop={(e) => handle_drop(e, note.id, note.color)}
-      on:keydown={(e) => handle_keydown(e, note.id)}
+      on:keydown={handle_keydown}
     >
       {note.note}
     </div>
