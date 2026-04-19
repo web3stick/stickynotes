@@ -2,7 +2,7 @@
   import { sticky_dexie_db } from "../../ts/dexie/new";
   import { liveQuery } from "dexie";
   import { onDestroy } from "svelte";
-  import { copyNote, changeNoteColor, deleteNote } from "../../ts/note_options";
+  import { copy_note, change_note_color, delete_note } from "../../ts/note_options";
 
   let notes: any[] = [];
 
@@ -15,14 +15,14 @@
     error: (err) => console.error(err),
   });
 
-  async function updateNote(id: string, newNote: string) {
-    await sticky_dexie_db.stickynotes.update(id, { note: newNote });
+  async function update_note(id: string, new_note: string) {
+    await sticky_dexie_db.stickynotes.update(id, { note: new_note });
   }
 
-  function setupObserver(node: HTMLElement, id: string) {
+  function setup_observer(node: HTMLElement, id: string) {
     const observer = new MutationObserver(() => {
       const content = node.textContent || "";
-      updateNote(id, content);
+      update_note(id, content);
     });
     observer.observe(node, {
       characterData: true,
@@ -36,11 +36,11 @@
     };
   }
 
-  function handleDragOver(event: DragEvent) {
+  function handle_drag_over(event: DragEvent) {
     event.preventDefault();
   }
 
-  async function handleDrop(
+  async function handle_drop(
     event: DragEvent,
     noteId: string,
     noteColor: string,
@@ -48,10 +48,10 @@
     event.preventDefault();
     event.stopPropagation();
     const className = event.dataTransfer?.getData("text/plain") || "";
-    await handleAction(className, noteId, noteColor);
+    await handle_action(className, noteId, noteColor);
   }
 
-  async function handleAction(
+  async function handle_action(
     className: string,
     noteId: string,
     noteColor: string,
@@ -61,16 +61,16 @@
     ) as HTMLElement;
 
     if (className.includes("note_copy")) {
-      await copyNote(noteId);
+      await copy_note(noteId);
     } else if (className.includes("note_color")) {
-      const newColor = await changeNoteColor(noteId, noteColor);
+      const newColor = await change_note_color(noteId, noteColor);
       if (noteEl) {
         noteEl.dataset.color = newColor;
         noteEl.classList.remove(noteColor);
         noteEl.classList.add(newColor);
       }
     } else if (className.includes("note_delete")) {
-      await deleteNote(noteId);
+      await delete_note(noteId);
     }
   }
 
@@ -90,9 +90,9 @@
       class="div_stickynote_note {note.color}"
       data-id={note.id}
       data-color={note.color}
-      use:setupObserver={note.id}
-      on:dragover={handleDragOver}
-      on:drop={(e) => handleDrop(e, note.id, note.color)}
+      use:setup_observer={note.id}
+      on:dragover={handle_drag_over}
+      on:drop={(e) => handle_drop(e, note.id, note.color)}
     >
       {note.note}
     </div>

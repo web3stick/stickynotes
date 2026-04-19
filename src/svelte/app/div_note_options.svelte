@@ -1,10 +1,10 @@
 <script lang="ts">
-  function handleDragStart(event: DragEvent) {
+  function handle_drag_start(event: DragEvent) {
     const target = event.target as HTMLElement;
     event.dataTransfer?.setData("text/plain", target.className);
   }
 
-  function handleTouchStart(event: TouchEvent) {
+  function handle_touch_start(event: TouchEvent) {
     (event.target as HTMLElement).dataset.touching = "true";
   }
 </script>
@@ -19,8 +19,8 @@
     draggable="true"
     class="note_copy"
     title="Copy note content to clipboard"
-    on:dragstart={handleDragStart}
-    on:touchstart={handleTouchStart}
+    on:dragstart={handle_drag_start}
+    on:touchstart={handle_touch_start}
   >
     📋
   </div>
@@ -28,8 +28,8 @@
     draggable="true"
     class="note_color"
     title="Change note color"
-    on:dragstart={handleDragStart}
-    on:touchstart={handleTouchStart}
+    on:dragstart={handle_drag_start}
+    on:touchstart={handle_touch_start}
   >
     🎨
   </div>
@@ -37,8 +37,8 @@
     draggable="true"
     class="note_delete"
     title="Delete note"
-    on:dragstart={handleDragStart}
-    on:touchstart={handleTouchStart}
+    on:dragstart={handle_drag_start}
+    on:touchstart={handle_touch_start}
   >
     🗑️
   </div>
