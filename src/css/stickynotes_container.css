@@ -10,7 +10,8 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding: 20px;
-  background: #fffbe6; /* optional sticky-note color */
+  color: black;
+  background-color: #fffbe6; /* optional sticky-note color */
   box-sizing: border-box;
 }
 /*============================================*/
