@@ -2,7 +2,11 @@
   import { sticky_dexie_db } from "../../ts/dexie/new";
   import { liveQuery } from "dexie";
   import { onDestroy } from "svelte";
-  import { copy_note, change_note_color, delete_note } from "../../ts/note_options";
+  import {
+    copy_note,
+    change_note_color,
+    delete_note,
+  } from "../../ts/note_options";
 
   let notes: any[] = [];
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
