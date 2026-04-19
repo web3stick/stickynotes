@@ -5,6 +5,7 @@
   import { copy_note, change_note_color, delete_note } from "../../ts/note_options";
 
   let notes: any[] = [];
+  let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   const subscription = liveQuery(() =>
     sticky_dexie_db.stickynotes.toArray(),
@@ -21,9 +22,12 @@
 
   function setup_observer(node: HTMLElement, id: string) {
     const observer = new MutationObserver(() => {
-      const content = node.textContent || "";
-      console.log("save:", id.slice(0, 8), "len:", content.length);
-      update_note(id, content);
+      if (debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const content = node.textContent || "";
+        console.log("save:", id.slice(0, 8), "len:", content.length);
+        update_note(id, content);
+      }, 300);
     });
     observer.observe(node, {
       characterData: true,
