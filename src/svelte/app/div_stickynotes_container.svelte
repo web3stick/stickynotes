@@ -36,7 +36,25 @@
       debounceTimer = setTimeout(() => {
         const content = node.innerText || "";
         console.log("save:", id.slice(0, 8), "len:", content.length);
-        update_note(id, content);
+        // Save cursor position before DB write + Svelte re-render
+        const selection = window.getSelection();
+        let offset = 0;
+        if (selection && selection.rangeCount > 0) {
+          const range = selection.getRangeAt(0);
+          offset = range.startOffset;
+        }
+        update_note(id, content).then(() => {
+          // Restore cursor after re-render
+          if (selection && selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            try {
+              range.setStart(range.startContainer, Math.min(offset, range.startContainer.textContent?.length ?? 0));
+              range.collapse(true);
+              selection.removeAllRanges();
+              selection.addRange(range);
+            } catch {}
+          }
+        });
       }, 300);
     });
     observer.observe(node, {
