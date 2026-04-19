@@ -24,7 +24,7 @@
     const observer = new MutationObserver(() => {
       if (debounceTimer) clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        const content = node.textContent || "";
+        const content = node.innerText || "";
         console.log("save:", id.slice(0, 8), "len:", content.length);
         update_note(id, content);
       }, 300);
