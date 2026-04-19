@@ -20,7 +20,15 @@
 
 <!-- button_create -->
 <!-- BUTTON_CREATE -->
-<div id="BUTTON_CREATE" on:click={createNote} on:keydown={(e) => e.key === "Enter" && createNote()} tabindex="0" role="button">+</div>
+<div
+  id="BUTTON_CREATE"
+  on:click={createNote}
+  on:keydown={(e) => e.key === "Enter" && createNote()}
+  tabindex="0"
+  role="button"
+>
+  +
+</div>
 
 <!-- ============================================ -->
 <!-- ============================================ -->

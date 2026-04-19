@@ -1,4 +1,13 @@
-<script lang="ts"></script>
+<script lang="ts">
+  function handleDragStart(event: DragEvent) {
+    const target = event.target as HTMLElement;
+    event.dataTransfer?.setData("text/plain", target.className);
+  }
+
+  function handleTouchStart(event: TouchEvent) {
+    (event.target as HTMLElement).dataset.touching = "true";
+  }
+</script>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
@@ -6,23 +15,39 @@
 <!-- div_note_options -->
 <!-- DIV_NOTE_OPTIONS -->
 <div class="note_options">
-  <!-- <div class="note_pin">📌</div> -->
   <div
     draggable="true"
     class="note_copy"
     title="Copy note content to clipboard"
+    on:dragstart={handleDragStart}
+    on:touchstart={handleTouchStart}
   >
     📋
   </div>
-  <div draggable="true" class="note_color" title="Change note color">🎨</div>
-  <div draggable="true" class="note_delete" title="Delete note">🗑️</div>
+  <div
+    draggable="true"
+    class="note_color"
+    title="Change note color"
+    on:dragstart={handleDragStart}
+    on:touchstart={handleTouchStart}
+  >
+    🎨
+  </div>
+  <div
+    draggable="true"
+    class="note_delete"
+    title="Delete note"
+    on:dragstart={handleDragStart}
+    on:touchstart={handleTouchStart}
+  >
+    🗑️
+  </div>
 </div>
 
 <!-- ============================================ -->
 <!-- ============================================ -->
 
 <style>
-  /* note_options */
   .note_options {
     position: fixed;
     top: 10px;
@@ -38,7 +63,6 @@
     opacity: 0.7;
   }
 
-  /* Mobile responsive styles */
   @media screen and (max-width: 768px) {
     .note_options {
       top: auto;
