@@ -7,6 +7,7 @@
     change_note_color,
     delete_note,
   } from "../../ts/note_options";
+  import { selected_action } from "../../ts/stores";
 
   let notes: any[] = [];
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
@@ -36,7 +37,6 @@
       debounceTimer = setTimeout(() => {
         const content = node.innerText || "";
         console.log("save:", id.slice(0, 8), "len:", content.length);
-        // Save cursor position before DB write + Svelte re-render
         const selection = window.getSelection();
         let offset = 0;
         if (selection && selection.rangeCount > 0) {
@@ -44,7 +44,6 @@
           offset = range.startOffset;
         }
         update_note(id, content).then(() => {
-          // Restore cursor after re-render
           if (selection && selection.rangeCount > 0) {
             const range = selection.getRangeAt(0);
             try {
@@ -82,6 +81,32 @@
     event.stopPropagation();
     const className = event.dataTransfer?.getData("text/plain") || "";
     await handle_action(className, noteId, noteColor);
+  }
+
+  async function handle_note_click(
+    noteId: string,
+    noteColor: string,
+  ) {
+    const action = $selected_action;
+    if (!action) return;
+
+    if (action === "copy") {
+      await copy_note(noteId);
+    } else if (action === "color") {
+      const newColor = await change_note_color(noteId, noteColor);
+      const noteEl = document.querySelector(
+        `[data-id="${noteId}"]`,
+      ) as HTMLElement;
+      if (noteEl) {
+        noteEl.dataset.color = newColor;
+        noteEl.classList.remove(noteColor);
+        noteEl.classList.add(newColor);
+      }
+    } else if (action === "delete") {
+      await delete_note(noteId);
+    }
+
+    selected_action.set(null);
   }
 
   async function handle_action(
@@ -127,6 +152,7 @@
       on:dragover={handle_drag_over}
       on:drop={(e) => handle_drop(e, note.id, note.color)}
       on:keydown={handle_keydown}
+      on:click={() => handle_note_click(note.id, note.color)}
     >
       {note.note}
     </div>

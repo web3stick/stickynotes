@@ -1,11 +1,8 @@
 <script lang="ts">
-  function handle_drag_start(event: DragEvent) {
-    const target = event.target as HTMLElement;
-    event.dataTransfer?.setData("text/plain", target.className);
-  }
+  import { selected_action } from "../../ts/stores";
 
-  function handle_touch_start(event: TouchEvent) {
-    (event.target as HTMLElement).dataset.touching = "true";
+  function select_action(action: "copy" | "color" | "delete") {
+    selected_action.set(action);
   }
 </script>
 
@@ -16,29 +13,23 @@
 <!-- DIV_NOTE_OPTIONS -->
 <div class="note_options">
   <div
-    draggable="true"
     class="note_copy"
     title="Copy note content to clipboard"
-    on:dragstart={handle_drag_start}
-    on:touchstart={handle_touch_start}
+    on:click={() => select_action("copy")}
   >
     📋
   </div>
   <div
-    draggable="true"
     class="note_color"
     title="Change note color"
-    on:dragstart={handle_drag_start}
-    on:touchstart={handle_touch_start}
+    on:click={() => select_action("color")}
   >
     🎨
   </div>
   <div
-    draggable="true"
     class="note_delete"
     title="Delete note"
-    on:dragstart={handle_drag_start}
-    on:touchstart={handle_touch_start}
+    on:click={() => select_action("delete")}
   >
     🗑️
   </div>
