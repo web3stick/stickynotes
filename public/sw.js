@@ -1,10 +1,11 @@
 const CACHE_NAME = "index-cache-v1";
-const INDEX_URL = "/";
+const INDEX_URL = "/index.html";
+const STATIC_ASSETS = ["/index.html", "/manifest.json"];
 
 self.addEventListener("install", (event) => {
   console.log("[SW] Installing new service worker...");
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.add(INDEX_URL)),
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS)),
   );
   self.skipWaiting();
 });
@@ -27,7 +28,6 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const isIndexRequest =
-    event.request.url === self.location.origin + "/" ||
     event.request.url === self.location.origin + "/index.html";
 
   if (isIndexRequest) {
