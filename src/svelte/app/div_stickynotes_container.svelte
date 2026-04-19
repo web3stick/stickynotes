@@ -149,6 +149,7 @@
       data-id={note.id}
       data-color={note.color}
       use:setup_observer={note.id}
+      role="article"
       on:dragover={handle_drag_over}
       on:drop={(e) => handle_drop(e, note.id, note.color)}
       on:keydown={handle_keydown}

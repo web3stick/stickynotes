@@ -12,27 +12,30 @@
 <!-- div_note_options -->
 <!-- DIV_NOTE_OPTIONS -->
 <div class="note_options">
-  <div
+  <button
+    type="button"
     class="note_copy"
     title="Copy note content to clipboard"
     on:click={() => select_action("copy")}
   >
     📋
-  </div>
-  <div
+  </button>
+  <button
+    type="button"
     class="note_color"
     title="Change note color"
     on:click={() => select_action("color")}
   >
     🎨
-  </div>
-  <div
+  </button>
+  <button
+    type="button"
     class="note_delete"
     title="Delete note"
     on:click={() => select_action("delete")}
   >
     🗑️
-  </div>
+  </button>
 </div>
 
 <!-- ============================================ -->
@@ -50,7 +53,7 @@
     cursor: pointer;
     z-index: 5;
   }
-  .note_options div:hover {
+  .note_options button:hover {
     opacity: 0.7;
   }
 
@@ -62,7 +65,7 @@
       left: 20px;
       gap: 15px;
     }
-    .note_options div {
+    .note_options button {
       font-size: 40px;
     }
   }
