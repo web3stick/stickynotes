@@ -12,7 +12,7 @@
 
 <article>
   <section>
-    <h1>app</h1>
+    <!-- <h1>app</h1> -->
   </section>
   <!-- buttons -->
   <BUTTON_CREATE />
