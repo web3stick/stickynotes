@@ -1,6 +1,21 @@
 # netlify.toml
 [build]
   # The command that builds your project
-  # command = "bun run build"
+  command = "bun run build"
   # The directory to publish (upload) to Netlify
-  publish = "src"
+  publish = "dist"
+
+[[redirects]]
+  from = "/manifest.json"
+  to   = "/manifest.json"
+  status = 200
+
+[[redirects]]
+  from = "/sw.js"
+  to   = "/sw.js"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200

@@ -1,0 +1,41 @@
+/* notes  */
+/* Outer .div_stickynote_note stays inline-block so notes sit side-by-side */
+.div_stickynote_note {
+  width: 700px;
+  max-width: 90vw;
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 20px;
+  background: #fffbe6; /* optional sticky-note color */
+  box-sizing: border-box;
+}
+/*============================================*/
+/*colors*/
+.red {
+  background-color: var(--color-red);
+}
+
+.green {
+  background-color: var(--color-green);
+}
+
+.purple {
+  background-color: var(--color-purple);
+}
+
+.yellow {
+  background-color: var(--color-yellow);
+}
+
+.blue {
+  background-color: var(--color-blue);
+}
+
+.orange {
+  background-color: var(--color-orange);
+}
+/*============================================*/

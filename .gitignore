@@ -1,14 +1,20 @@
-# mac
+# Local
 .DS_Store
+*.local
+*.log*
 
-# dev
-.parcel-cache/
+# Dist
+node_modules
 dist/
-node_modules/
-bun.lockb
-package-lock.json
-bun.lock
-pnpm-lock.yaml
+
+# Profile
+.rspack-profile-*/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+/.parcel-cache
 
 # Local Netlify folder
 .netlify

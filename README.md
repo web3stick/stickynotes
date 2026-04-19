@@ -1,6 +1,6 @@
 # stickynotes
-🟨 a simple sticky notes web app
 
+🟨 a simple sticky notes web app
 
 ---
 
@@ -8,18 +8,12 @@
 
 ```sh
 bun i
-bun run start
 bun run dev
 bun run build
-bun run clean
+bun run svelte-check
 
-# web4 deploy
-NEAR_SIGNER_KEY=ed25519:your_key_here
-bun run web4_testnet
-bun run web4_mainnet
-# web3 storgae as backup
-w3 space use TEMP
-w3 up src
+bun run tsc --noEmit
+bunx prettier . --write
 
 # netlify
 # stickyweb-stickynotes
@@ -30,6 +24,7 @@ netlify deploy --prod
 ---
 
 ### Features
+
 - 📝 Create, edit, and delete sticky notes
 - 💾 Offline-first functionality
 - 🔄 Automatic local storage saving (JSON format)
@@ -42,7 +37,6 @@ netlify deploy --prod
 - 🔒 Privacy-focused (all data stays on your device)
 - 🔐 no lock in, export your notes and open in other apps
 
-
 ---
 
 ### Design Details
@@ -52,14 +46,14 @@ netlify deploy --prod
 ```
 
 json feilds
+
 - "pinned": "true"
 - "color": "yellow"
 - "note": "Hello World!"
 - "id": "1234567890"
 
-
-
 Color Options
+
 - #95D58D - green
 - #C9A8F4 - purple
 - #FFF8A3 - yellow
@@ -67,11 +61,12 @@ Color Options
 - #FF8A8A - red
 - #FFC58A - orange
 
-
 ---
 
 ### Roadmap
+
 ideas
+
 - [x] basic functionality, create, edit, export
 - [ ] search
 - [ ] import

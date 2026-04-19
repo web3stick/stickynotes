@@ -1,25 +1,25 @@
 {
   "name": "stickynotes",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.1.0",
-  "source": "src/index.html",
+  "type": "module",
   "scripts": {
-    "start": "parcel",
-    "dev": "live-server src --port=7020",
-    "build": "rm -rf dist && parcel build",
-    "clean": "rm -rf dist && rm -rf .parcel-cache",
-    "web4_testnet": "web4-deploy src stickynotes.testnet --nearfs --yes",
-    "web4_mainnet": "web4-deploy src stickynotes.near --nearfs"
+    "build": "rsbuild build",
+    "dev": "rsbuild dev --open",
+    "preview": "rsbuild preview",
+    "svelte-check": "svelte-check --tsconfig ./tsconfig.json"
   },
-  "@parcel/bundler-default": {
-    "publicUrl": "./"
+  "dependencies": {
+    "@sleet-css/sticky-css": "^0.0.3",
+    "dexie": "^4.4.2",
+    "sv-router": "^0.16.0",
+    "svelte": "^5.55.4"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "2.16.4",
-    "@parcel/transformer-webmanifest": "2.16.4",
-    "parcel": "^2.16.4",
-    "svgo": "^4.0.0",
-    "live-server": "^1.2.2"
-  },
-  "packageManager": "pnpm@10.8.1"
+    "@rsbuild/core": "^1.7.5",
+    "@rsbuild/plugin-svelte": "^1.1.1",
+    "prettier-plugin-svelte": "^3.5.1",
+    "svelte-check": "^4.4.6",
+    "typescript": "^6.0.3"
+  }
 }
