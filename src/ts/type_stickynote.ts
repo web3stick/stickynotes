@@ -1,5 +1,5 @@
 // ============================================
-interface STICKYNOTE_INTERFACE {
+export interface STICKYNOTE_INTERFACE {
   color: string;
   note: string;
   id: string;
