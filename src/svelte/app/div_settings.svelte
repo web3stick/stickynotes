@@ -2,21 +2,21 @@
   import { onMount } from "svelte";
   import { load_settings, save_settings } from "../../ts/settings";
   import { settings_visible, show_alert } from "../../ts/stores";
-// ============================================
+  // ============================================
   let bypass_index = $state(false);
-// ============================================
+  // ============================================
   onMount(() => {
     const settings = load_settings();
     bypass_index = settings.bypass_index;
   });
-// ============================================
+  // ============================================
   function handle_save(e: Event) {
     e.preventDefault();
     save_settings({ bypass_index });
     settings_visible.set(false);
     show_alert("SETTINGS SAVED!");
   }
-// ============================================
+  // ============================================
 </script>
 
 <!-- ============================================ -->
