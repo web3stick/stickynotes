@@ -3,7 +3,7 @@ import type { STICKYNOTE_INTERFACE } from "../type_stickynote";
 // ============================================
 // new
 export const sticky_dexie_db = new Dexie("STICKYNOTES_DATABASE") as Dexie & {
-   stickynotes: EntityTable<STICKYNOTE_INTERFACE, "id">;
+  stickynotes: EntityTable<STICKYNOTE_INTERFACE, "id">;
 };
 // ============================================
 // Schema declaration:
