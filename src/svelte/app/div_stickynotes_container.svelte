@@ -22,6 +22,7 @@
   function setup_observer(node: HTMLElement, id: string) {
     const observer = new MutationObserver(() => {
       const content = node.textContent || "";
+      console.log("save:", id.slice(0, 8), "len:", content.length);
       update_note(id, content);
     });
     observer.observe(node, {
